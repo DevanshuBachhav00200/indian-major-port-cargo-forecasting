@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, ShieldAlert, BookOpen, Layers, CheckCircle2, Server, Code, FileSpreadsheet } from 'lucide-react';
+import { Anchor, ShieldAlert, BookOpen, Layers, CheckCircle2, Server, Code, FileSpreadsheet, ArrowRight } from 'lucide-react';
 
 export const About: React.FC = () => {
   const coveredPorts = [
@@ -16,127 +16,137 @@ export const About: React.FC = () => {
     { name: 'Kamarajar (Ennore)', state: 'Tamil Nadu', coast: 'East Coast', type: 'Corporate Port (Energy & Cars)' }
   ];
 
+  const techStack = [
+    { name: 'Python 3.10+', category: 'Language' },
+    { name: 'Scikit-learn', category: 'Machine Learning' },
+    { name: 'Tuned Lasso (α=0.0241)', category: 'Core Algorithm' },
+    { name: 'FastAPI', category: 'REST API Framework' },
+    { name: 'React 18', category: 'Frontend UI' },
+    { name: 'TypeScript', category: 'Type Safety' },
+    { name: 'Vite 5', category: 'Build Tool' },
+    { name: 'Recharts', category: 'Analytics Visualization' },
+    { name: 'Render', category: 'API Cloud Hosting' },
+    { name: 'Vercel', category: 'UI Cloud Hosting' }
+  ];
+
   return (
-    <div className="space-y-6">
-      {/* Header Card */}
-      <div className="card" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)', color: '#FFFFFF' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '12px' }}>
-          <div style={{ background: '#1E40AF', padding: '10px', borderRadius: '10px', color: '#FFFFFF' }}>
-            <Anchor size={28} />
+    <div>
+      {/* Page Header */}
+      <div className="page-header">
+        <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-primary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>
+          PORT INTEL / ABOUT
+        </div>
+        <h1 className="page-title">PORT INTEL ML</h1>
+        <p className="page-subtitle">
+          Indian Major Port Cargo Forecasting & Performance Intelligence System
+        </p>
+      </div>
+
+      {/* Hero Card */}
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+          <div className="brand-icon-wrapper">
+            <Anchor size={22} />
           </div>
           <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 700, margin: 0 }}>Indian Major Port Cargo Forecasting System</h2>
-            <div style={{ color: '#94A3B8', fontSize: '0.88rem', marginTop: '4px' }}>
-              Academic & Operational Research Platform for Maritime Infrastructure Intelligence
+            <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>Research & Decision Intelligence Platform</h2>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+              Data source: Ministry of Ports, Shipping & Waterways Transport Research
             </div>
           </div>
         </div>
-        <p style={{ color: '#CBD5E1', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
-          This decision-support platform leverages regularized machine learning (Tuned Lasso Regression, $\alpha=0.0241$) to deliver accurate, non-overfitted annual cargo traffic predictions for India’s major public port authorities. Developed to support evidence-based infrastructure investment and berth utilization optimization under national frameworks like PM Gati Shakti and Maritime India Vision 2030.
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>
+          This decision-support platform leverages regularized machine learning (Tuned Lasso Regression, $\alpha=0.0241$) to deliver non-overfitted annual cargo traffic predictions for India’s major public port authorities. Developed to support evidence-based infrastructure planning and berth utilization optimization under frameworks like PM Gati Shakti and Maritime India Vision 2030.
         </p>
       </div>
 
-      {/* Coverage Table & Geographic Scope */}
-      <div className="card">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-          <FileSpreadsheet size={20} color="#1E40AF" />
-          <h3 style={{ fontSize: '1.1rem', color: '#0F172A', margin: 0, fontWeight: 700 }}>
-            Geographic Scope & Port Coverage (11 Major Ports)
-          </h3>
+      {/* Flow Diagram Section */}
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <div className="card-header">
+          <h3 className="card-title">System Architecture Flow</h3>
         </div>
-        <p style={{ fontSize: '0.85rem', color: '#475569', marginBottom: '16px' }}>
-          The machine learning pipeline covers 11 major public port authorities across India’s eastern and western maritime corridors.
-        </p>
-        
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Port Authority</th>
-              <th>State</th>
-              <th>Maritime Coast</th>
-              <th>Primary Cargo / Operational Profile</th>
-            </tr>
-          </thead>
-          <tbody>
-            {coveredPorts.map((port, idx) => (
-              <tr key={idx}>
-                <td style={{ fontWeight: 600, color: '#0F172A' }}>{port.name}</td>
-                <td>{port.state}</td>
-                <td>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 600, padding: '2px 8px', borderRadius: '4px', background: port.coast === 'West Coast' ? '#E0F2FE' : '#FEF3C7', color: port.coast === 'West Coast' ? '#0369A1' : '#B45309' }}>
-                    {port.coast}
-                  </span>
-                </td>
-                <td style={{ fontSize: '0.82rem', color: '#334155' }}>{port.type}</td>
+        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '10px', fontSize: '0.8rem', fontWeight: 700 }}>
+          <span style={{ background: 'var(--bg-subtle)', padding: '8px 14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>Official Ministry Data</span>
+          <ArrowRight size={14} color="var(--text-muted)" />
+          <span style={{ background: 'var(--bg-subtle)', padding: '8px 14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>Feature Engineering</span>
+          <ArrowRight size={14} color="var(--text-muted)" />
+          <span style={{ background: 'var(--bg-subtle)', padding: '8px 14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>ML Model (Lasso α=0.0241)</span>
+          <ArrowRight size={14} color="var(--text-muted)" />
+          <span style={{ background: 'var(--bg-subtle)', padding: '8px 14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>FastAPI (Render)</span>
+          <ArrowRight size={14} color="var(--text-muted)" />
+          <span style={{ background: 'var(--bg-subtle)', padding: '8px 14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>React Dashboard (Vercel)</span>
+          <ArrowRight size={14} color="var(--text-muted)" />
+          <span style={{ background: 'var(--color-primary-subtle)', padding: '8px 14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-primary-border)', color: 'var(--color-primary)' }}>Decision Support</span>
+        </div>
+      </div>
+
+      {/* Technology Stack Badges */}
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <div className="card-header">
+          <h3 className="card-title">Technology Stack & Platform Components</h3>
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+          {techStack.map((tech, idx) => (
+            <div key={idx} style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border-subtle)', padding: '6px 12px', borderRadius: 'var(--radius-md)', fontSize: '0.8rem' }}>
+              <span style={{ color: 'var(--text-primary)', fontWeight: 700 }}>{tech.name}</span>
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.72rem', marginLeft: '6px' }}>({tech.category})</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Coverage Table */}
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <div className="card-header">
+          <h3 className="card-title">Geographic Scope & Port Coverage (11 Major Ports)</h3>
+        </div>
+        <div className="table-container">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Port Authority</th>
+                <th>State</th>
+                <th>Maritime Coast</th>
+                <th>Operational Profile</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {coveredPorts.map((port, idx) => (
+                <tr key={idx}>
+                  <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{port.name}</td>
+                  <td>{port.state}</td>
+                  <td>
+                    <span className={`badge ${port.coast === 'West Coast' ? 'badge-production' : 'badge-secondary'}`}>
+                      {port.coast}
+                    </span>
+                  </td>
+                  <td style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{port.type}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      {/* Operational Limitations & Boundaries */}
-      <div className="card" style={{ borderLeft: '4px solid #D97706', background: '#FFFBEB' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-          <ShieldAlert size={20} color="#D97706" />
-          <h3 style={{ fontSize: '1.1rem', color: '#78350F', margin: 0, fontWeight: 700 }}>
-            Explicit Model Scope & Academic Boundaries
+      {/* Operational Scope & Boundaries */}
+      <div className="card" style={{ borderLeft: '4px solid var(--color-warning)' }}>
+        <div className="card-header">
+          <h3 className="card-title" style={{ color: 'var(--color-warning-text)' }}>
+            <ShieldAlert size={18} /> Model Scope & Limitations
           </h3>
         </div>
-        <div className="grid grid-2" style={{ gap: '16px' }}>
-          <div style={{ background: '#FFFFFF', padding: '14px', borderRadius: '6px', border: '1px solid #FDE68A' }}>
-            <h4 style={{ margin: '0 0 6px 0', fontSize: '0.88rem', color: '#92400E', fontWeight: 700 }}>1. Macro-Level Annual Horizon</h4>
-            <p style={{ margin: 0, fontSize: '0.8rem', color: '#451A03', lineHeight: 1.45 }}>
-              The model is calibrated for strategic annual planning and berth capacity budgeting. It is <strong>not</strong> designed for short-term daily berth allocation or real-time vessel dispatch scheduling.
+        <div className="grid-2">
+          <div style={{ background: '#FFFBEB', padding: '12px', borderRadius: 'var(--radius-sm)', border: '1px solid #FDE68A' }}>
+            <div style={{ fontWeight: 700, color: '#92400E', fontSize: '0.82rem' }}>Macro Annual Horizon</div>
+            <p style={{ margin: '4px 0 0 0', fontSize: '0.78rem', color: '#78350F', lineHeight: 1.45 }}>
+              Calibrated for strategic annual planning and capacity budgeting; not designed for high-frequency daily berth allocation.
             </p>
           </div>
-          <div style={{ background: '#FFFFFF', padding: '14px', borderRadius: '6px', border: '1px solid #FDE68A' }}>
-            <h4 style={{ margin: '0 0 6px 0', fontSize: '0.88rem', color: '#92400E', fontWeight: 700 }}>2. Structural Continuity Assumption</h4>
-            <p style={{ margin: 0, fontSize: '0.8rem', color: '#451A03', lineHeight: 1.45 }}>
-              Forecasts assume continuity in baseline maritime trade routes and port administrative policies. Sudden structural regime shifts (e.g., brand-new major port openings) require baseline updating.
+          <div style={{ background: '#FFFBEB', padding: '12px', borderRadius: 'var(--radius-sm)', border: '1px solid #FDE68A' }}>
+            <div style={{ fontWeight: 700, color: '#92400E', fontSize: '0.82rem' }}>Structural Continuity</div>
+            <p style={{ margin: '4px 0 0 0', fontSize: '0.78rem', color: '#78350F', lineHeight: 1.45 }}>
+              Forecasts assume continuity in baseline maritime trade routes and port administrative policies.
             </p>
-          </div>
-          <div style={{ background: '#FFFFFF', padding: '14px', borderRadius: '6px', border: '1px solid #FDE68A' }}>
-            <h4 style={{ margin: '0 0 6px 0', fontSize: '0.88rem', color: '#92400E', fontWeight: 700 }}>3. Exogenous Shock Boundaries</h4>
-            <p style={{ margin: 0, fontSize: '0.8rem', color: '#451A03', lineHeight: 1.45 }}>
-              Black swan macroeconomic events (unforeseen global pandemics, sudden trade embargos, natural disasters) fall outside historical lag patterns and require manual expert scenario overrides.
-            </p>
-          </div>
-          <div style={{ background: '#FFFFFF', padding: '14px', borderRadius: '6px', border: '1px solid #FDE68A' }}>
-            <h4 style={{ margin: '0 0 6px 0', fontSize: '0.88rem', color: '#92400E', fontWeight: 700 }}>4. Non-Causal Coefficient Interpretation</h4>
-            <p style={{ margin: 0, fontSize: '0.8rem', color: '#451A03', lineHeight: 1.45 }}>
-              Fitted Lasso feature weights reflect statistical association and predictive power within the multi-variable regularized framework, not strict causal impact.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* System Technical Stack */}
-      <div className="card">
-        <h3 style={{ fontSize: '1.1rem', color: '#0F172A', marginBottom: '16px' }}>System Architecture & Production Artifacts</h3>
-        <div className="grid grid-3">
-          <div style={{ background: '#F8FAFC', padding: '14px', borderRadius: '6px', border: '1px solid #E2E8F0' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', color: '#1E40AF', fontWeight: 600, fontSize: '0.85rem' }}>
-              <Server size={16} /> FastAPI Backend Engine
-            </div>
-            <div style={{ fontSize: '0.8rem', color: '#475569' }}>
-              Python 3.10+, FastAPI REST service running on <code>127.0.0.1:8000</code>. Provides <code>/predict</code> and <code>/analytics</code> endpoints with automated validation via Pydantic.
-            </div>
-          </div>
-          <div style={{ background: '#F8FAFC', padding: '14px', borderRadius: '6px', border: '1px solid #E2E8F0' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', color: '#1E40AF', fontWeight: 600, fontSize: '0.85rem' }}>
-              <Code size={16} /> React TypeScript Frontend
-            </div>
-            <div style={{ fontSize: '0.8rem', color: '#475569' }}>
-              Vite-powered React + TypeScript single page application styled with modern maritime light design system and responsive Recharts analytics dashboards.
-            </div>
-          </div>
-          <div style={{ background: '#F8FAFC', padding: '14px', borderRadius: '6px', border: '1px solid #E2E8F0' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', color: '#1E40AF', fontWeight: 600, fontSize: '0.85rem' }}>
-              <Layers size={16} /> Frozen ML Pipeline Artifacts
-            </div>
-            <div style={{ fontSize: '0.8rem', color: '#475569' }}>
-              Models serialized via Joblib in <code>models/</code>: <code>final_lasso_model.pkl</code>, <code>final_preprocessor.pkl</code>, and full audit metadata in <code>model_metadata.json</code>.
-            </div>
           </div>
         </div>
       </div>
