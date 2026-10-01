@@ -1,0 +1,55 @@
+{
+    "model_name": "Port Cargo Forecasting Lasso Model",
+    "model_version": "1.0.0",
+    "algorithm": "Lasso Regression",
+    "alpha": 0.0241,
+    "target_variable": "cargo_next_year_mt",
+    "required_input_features": [
+        "port",
+        "capacity_mt",
+        "capacity_utilization_pct",
+        "turnaround_time_hr",
+        "pre_berthing_detention_hr",
+        "avg_output_per_berth_day_tonnes",
+        "cargo_lag_1",
+        "capacity_growth_pct",
+        "output_change_pct"
+    ],
+    "encoded_feature_cols": [
+        "capacity_mt",
+        "capacity_utilization_pct",
+        "turnaround_time_hr",
+        "pre_berthing_detention_hr",
+        "avg_output_per_berth_day_tonnes",
+        "cargo_lag_1",
+        "capacity_growth_pct",
+        "output_change_pct",
+        "port_Cochin",
+        "port_Deendayal",
+        "port_JNPA",
+        "port_Kamarajar",
+        "port_Mormugao",
+        "port_Mumbai",
+        "port_New Mangalore",
+        "port_Paradip",
+        "port_V.O. Chidambaranar",
+        "port_Visakhapatnam"
+    ],
+    "training_period": {
+        "year_index_range": "3 to 15",
+        "target_years": "2007-08 to 2019-20",
+        "sample_count": 143
+    },
+    "evaluation_test_period": {
+        "year_index_range": "19 to 20",
+        "target_years": "2023-24 to 2024-25",
+        "sample_count": 21
+    },
+    "evaluation_metrics": {
+        "test_mae_mt": 3.1463,
+        "test_rmse_mt": 4.7013,
+        "test_mape_pct": 5.2542,
+        "test_r2": 0.9867
+    },
+    "dataset_description": "Official Indian Ministry of Ports, Shipping and Waterways Research Data (11 Major Ports, 195 Observations)"
+}
